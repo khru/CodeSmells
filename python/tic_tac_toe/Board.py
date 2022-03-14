@@ -1,4 +1,4 @@
-from Tile import Tile
+from tic_tac_toe.Tile import Tile
 
 
 class Board(object):
