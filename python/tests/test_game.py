@@ -37,7 +37,7 @@ class TestGame(unittest.TestCase):
 
         self.assertEqual('X', self.game.winner())
 
-    def test_declare_player_o_as_awinner_if_three_in_top_row(self):
+    def test_declare_player_o_as_a_winner_if_three_in_top_row(self):
         self.game.play('X', 2, 2)
         self.game.play('O', 0, 0)
         self.game.play('X', 1, 0)
@@ -47,7 +47,7 @@ class TestGame(unittest.TestCase):
 
         self.assertEqual('O', self.game.winner())
 
-    def test_declare_player_x_as_awinner_if_three_in_middle_row(self):
+    def test_declare_player_x_as_a_winner_if_three_in_middle_row(self):
         self.game.play('X', 0, 0)
         self.game.play('O', 1, 0)
         self.game.play('X', 2, 0)
@@ -57,7 +57,7 @@ class TestGame(unittest.TestCase):
 
         self.assertEqual('O', self.game.winner())
 
-    def test_declare_player_x_as_awinner_if_three_in_bottom_row(self):
+    def test_declare_player_x_as_a_winner_if_three_in_bottom_row(self):
         self.game.play('X', 2, 0)
         self.game.play('O', 0, 0)
         self.game.play('X', 2, 1)
@@ -66,7 +66,7 @@ class TestGame(unittest.TestCase):
 
         self.assertEqual('X', self.game.winner())
 
-    def test_declare_player_o_as_awinner_if_three_in_bottom_row(self):
+    def test_declare_player_o_as_a_winner_if_three_in_bottom_row(self):
         self.game.play('X', 0, 0)
         self.game.play('O', 2, 0)
         self.game.play('X', 1, 0)
