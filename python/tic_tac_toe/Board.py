@@ -13,15 +13,15 @@ class Board(object):
                 tile.Symbol = ' '
                 self._plays.append(tile)
 
-    def AddTileAt(self, symbol, x, y):
+    def add_tile_at(self, symbol, x, y):
         new_tile = Tile()
         new_tile.X = x
         new_tile.Y = y
         new_tile.Symbol = symbol
 
-        self.TileAt(x, y).Symbol = symbol
+        self.tile_at(x, y).Symbol = symbol
 
-    def TileAt(self, x, y):
+    def tile_at(self, x, y):
         for t in self._plays:
             if t.X == x and t.Y == y:
                 return t

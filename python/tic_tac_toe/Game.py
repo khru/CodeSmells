@@ -17,40 +17,40 @@ class Game(object):
         elif symbol == self._lastSymbol:
             raise Exception('Invalid next player')
         # if not first move but play on an already played tile
-        elif self._board.TileAt(x, y).Symbol != ' ':
+        elif self._board.tile_at(x, y).Symbol != ' ':
 
             raise Exception('Invalid position')
 
         # update game state
         self._lastSymbol = symbol
-        self._board.AddTileAt(symbol, x, y)
+        self._board.add_tile_at(symbol, x, y)
 
     def winner(self):
         # if the positions in first row are taken
-        if self._board.TileAt(0, 0).Symbol != ' ' \
-                and self._board.TileAt(0, 1).Symbol != ' ' \
-                and self._board.TileAt(0, 2).Symbol != ' ':
+        if self._board.tile_at(0, 0).Symbol != ' ' \
+                and self._board.tile_at(0, 1).Symbol != ' ' \
+                and self._board.tile_at(0, 2).Symbol != ' ':
             # if first row is full with same symbol
-            if self._board.TileAt(0, 0).Symbol == self._board.TileAt(0, 1).Symbol \
-                    and self._board.TileAt(0, 2).Symbol == self._board.TileAt(0, 1).Symbol:
-                return self._board.TileAt(0, 0).Symbol
+            if self._board.tile_at(0, 0).Symbol == self._board.tile_at(0, 1).Symbol \
+                    and self._board.tile_at(0, 2).Symbol == self._board.tile_at(0, 1).Symbol:
+                return self._board.tile_at(0, 0).Symbol
 
         # if the positions in first row are taken
-        if self._board.TileAt(1, 0).Symbol != ' ' \
-                and self._board.TileAt(1, 1).Symbol != ' ' \
-                and self._board.TileAt(1, 2).Symbol != ' ':
+        if self._board.tile_at(1, 0).Symbol != ' ' \
+                and self._board.tile_at(1, 1).Symbol != ' ' \
+                and self._board.tile_at(1, 2).Symbol != ' ':
             # if first row is full with same symbol
-            if self._board.TileAt(1, 0).Symbol == self._board.TileAt(1, 1).Symbol \
-                    and self._board.TileAt(1, 2).Symbol == self._board.TileAt(1, 1).Symbol:
-                return self._board.TileAt(1, 0).Symbol
+            if self._board.tile_at(1, 0).Symbol == self._board.tile_at(1, 1).Symbol \
+                    and self._board.tile_at(1, 2).Symbol == self._board.tile_at(1, 1).Symbol:
+                return self._board.tile_at(1, 0).Symbol
 
         # if the positions in first row are taken
-        if self._board.TileAt(2, 0).Symbol != ' ' \
-                and self._board.TileAt(2, 1).Symbol != ' ' \
-                and self._board.TileAt(2, 2).Symbol != ' ':
+        if self._board.tile_at(2, 0).Symbol != ' ' \
+                and self._board.tile_at(2, 1).Symbol != ' ' \
+                and self._board.tile_at(2, 2).Symbol != ' ':
             # if first row is full with same symbol
-            if self._board.TileAt(2, 0).Symbol == self._board.TileAt(2, 1).Symbol \
-                    and self._board.TileAt(2, 2).Symbol == self._board.TileAt(2, 1).Symbol:
-                return self._board.TileAt(2, 0).Symbol
+            if self._board.tile_at(2, 0).Symbol == self._board.tile_at(2, 1).Symbol \
+                    and self._board.tile_at(2, 2).Symbol == self._board.tile_at(2, 1).Symbol:
+                return self._board.tile_at(2, 0).Symbol
 
         return ' '
