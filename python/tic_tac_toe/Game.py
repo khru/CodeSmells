@@ -18,6 +18,7 @@ class Game(object):
             raise Exception('Invalid next player')
         # if not first move but play on an already played tile
         elif self._board.TileAt(x, y).Symbol != ' ':
+
             raise Exception('Invalid position')
 
         # update game state

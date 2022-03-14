@@ -28,7 +28,7 @@ class TestGame(unittest.TestCase):
             self.game.play('O', 1, 0)
             self.game.play('X', 0, 0)
 
-    def test_declare_player_x_as_awinner_if_three_in_top_row(self):
+    def test_declare_player_x_as_a_winner_if_three_in_top_row(self):
         self.game.play('X', 0, 0)
         self.game.play('O', 1, 0)
         self.game.play('X', 0, 1)
