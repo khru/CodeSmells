@@ -24,7 +24,7 @@ class Game(object):
 
     def winner(self):
         # if the positions in first row are taken
-        if self._board.tile_at(0, 0).Symbol is not None \
+        if self._board.tile_at(0, 0) is not None \
                 and self._board.tile_at(0, 1) is not None \
                 and self._board.tile_at(0, 2) is not None:
             # if first row is full with same symbol

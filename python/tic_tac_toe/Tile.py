@@ -3,3 +3,6 @@ class Tile(object):
         self.X = x
         self.Y = y
         self.Symbol = symbol
+
+    def __equal__(self, other: object) -> bool:
+        return other is not None and self.X == other.X and self.Y == other.Y and self.Symbol == other.Symbol
