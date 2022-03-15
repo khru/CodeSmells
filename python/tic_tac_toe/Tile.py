@@ -4,5 +4,5 @@ class Tile(object):
         self.Y = y
         self.Symbol = symbol
 
-    def __equal__(self, other: object) -> bool:
+    def __equal__(self, other) -> bool:
         return other is not None and self.X == other.X and self.Y == other.Y and self.Symbol == other.Symbol

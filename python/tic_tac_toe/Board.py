@@ -2,7 +2,6 @@ from tic_tac_toe.Tile import Tile
 
 
 class Board(object):
-    __BOARD_SIZE = 3
     def __init__(self):
         self._plays = []
 
