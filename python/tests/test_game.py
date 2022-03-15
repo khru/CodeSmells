@@ -8,11 +8,11 @@ class TestGame(unittest.TestCase):
     def setUp(self):
         self.game = Game()
 
-    def test_not_allow_player_oto_play_first(self):
+    def test_not_allow_player_o_to_play_first(self):
         with self.assertRaises(Exception):
             self.game.play('O', 0, 0)
 
-    def test_not_allow_player_xto_play_twice_in_arow(self):
+    def test_not_allow_player_x_to_play_twice_in_arow(self):
         with self.assertRaises(Exception):
             self.game.play('X', 0, 0)
             self.game.play('X', 1, 0)
