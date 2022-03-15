@@ -7,18 +7,11 @@ class Board(object):
         self._plays = []
         for i in range(self.__BOARD_SIZE):
             for j in range(self.__BOARD_SIZE):
-                tile = Tile()
-                tile.X = i
-                tile.Y = j
-                tile.Symbol = ' '
+                tile = Tile(i, j, ' ')
+
                 self._plays.append(tile)
 
     def add_tile_at(self, symbol, x, y):
-        new_tile = Tile()
-        new_tile.X = x
-        new_tile.Y = y
-        new_tile.Symbol = symbol
-
         self.tile_at(x, y).Symbol = symbol
 
     def tile_at(self, x, y):
