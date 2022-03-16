@@ -7,18 +7,16 @@ class Game(object):
         self._last_player = None
         self._board = Board()
 
-    def play(self, symbol, x, y):
-        if self._last_player is None and symbol == 'O':
+    def play(self, player, x, y):
+        if self._last_player is None and player != 'X':
             raise Exception('Invalid first player')
 
-        if symbol == self._last_player:
+        if player == self._last_player:
             raise Exception('Invalid next player')
 
-        if self._board.tile_at(x, y) is not None:
-            raise Exception('Invalid position')
+        self._board.play(player, x, y)
 
-        self._last_player = symbol
-        self._board.add_tile_at(symbol, x, y)
+        self._last_player = player
 
     def winner(self):
         return self._board.has_a_winner()
