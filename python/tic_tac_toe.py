@@ -1,5 +1,22 @@
-from tic_tac_toe.Tile import Tile
+class Game:
 
+    def __init__(self):
+        self._last_player = None
+        self._board = Board()
+
+    def play(self, player, x, y):
+        if self._last_player is None and player != 'X':
+            raise Exception('Invalid first player')
+
+        if player == self._last_player:
+            raise Exception('Invalid next player')
+
+        self._board.play(player, x, y)
+
+        self._last_player = player
+
+    def winner(self):
+        return self._board.has_a_winner()
 
 class Board(object):
     __BOARD_SIZE = 3
@@ -31,3 +48,12 @@ class Board(object):
                 return self.__tile_at(row, 0).symbol
 
         return None
+
+class Tile(object):
+    def __init__(self, x: int, y: int, symbol: str):
+        self.x = x
+        self.y = y
+        self.symbol = symbol
+
+    def __eq__(self, other) -> bool:
+        return other is not None and self.symbol == other.symbol
