@@ -22,41 +22,17 @@ class Game(object):
         self._last_player = symbol
         self._board.add_tile_at(symbol, x, y)
 
-    def a_player_won_on_the_first_row(self):
-        return self._board.tile_at(0, 0) == self._board.tile_at(0, 1) \
-                and self._board.tile_at(0, 2) == self._board.tile_at(0, 1)
-
-    def a_player_won_on_the_second_row(self):
-        return self._board.tile_at(1, 0) == self._board.tile_at(1, 1) \
-                    and self._board.tile_at(1, 2) == self._board.tile_at(1, 1)
-
-    def a_player_won_on_the_third_row(self):
-        return self._board.tile_at(2, 0) == self._board.tile_at(2, 1) \
-                    and self._board.tile_at(2, 2) == self._board.tile_at(2, 1)
+    def a_player_won_on_a_row(self, row):
+        return self._board.tile_at(row, 0) == self._board.tile_at(row, 1) \
+                and self._board.tile_at(row, 2) == self._board.tile_at(row, 1)
 
     def winner(self):
         # if the positions in first row are taken
-        if self._board.tile_at(0, 0) is not None \
-                and self._board.tile_at(0, 1) is not None \
-                and self._board.tile_at(0, 2) is not None:
-            # if first row is full with same symbol
-            if self.a_player_won_on_the_first_row():
-                return self._board.tile_at(0, 0).symbol
-
-        # if the positions in second row are taken
-        if self._board.tile_at(1, 0) is not None \
-                and self._board.tile_at(1, 1) is not None \
-                and self._board.tile_at(1, 2) is not None:
-            # if first second is full with same symbol
-            if self.a_player_won_on_the_second_row():
-                return self._board.tile_at(1, 0).symbol
-
-        # if the positions in third row are taken
-        if self._board.tile_at(2, 0) is not None \
-                and self._board.tile_at(2, 1) is not None \
-                and self._board.tile_at(2, 2) is not None:
-            # if first row is third with same symbol
-            if self.a_player_won_on_the_third_row():
-                return self._board.tile_at(2, 0).symbol
+        for row in range(3):
+            if self._board.tile_at(row, 0) is not None \
+                    and self._board.tile_at(row, 1) is not None \
+                    and self._board.tile_at(row, 2) is not None \
+                    and self.a_player_won_on_a_row(row):
+                return self._board.tile_at(row, 0).symbol
 
         return None
