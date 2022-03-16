@@ -1,8 +1,8 @@
 class Tile(object):
     def __init__(self, x: int, y: int, symbol: str):
-        self.X = x
-        self.Y = y
-        self.Symbol = symbol
+        self.x = x
+        self.y = y
+        self.symbol = symbol
 
-    def __equal__(self, other) -> bool:
-        return other is not None and self.X == other.X and self.Y == other.Y and self.Symbol == other.Symbol
+    def __eq__(self, other) -> bool:
+        return other is not None and self.symbol == other.symbol

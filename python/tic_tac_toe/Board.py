@@ -10,6 +10,6 @@ class Board(object):
 
     def tile_at(self, x, y):
         for t in self._plays:
-            if t.X == x and t.Y == y:
+            if t.x == x and t.y == y:
                 return t
         return None
