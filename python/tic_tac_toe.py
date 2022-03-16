@@ -46,16 +46,28 @@ class Board:
                     and self.__move_at(row, 1) is not None \
                     and self.__move_at(row, 2) is not None \
                     and self.a_player_won_on_a_row(row):
-                return self.__move_at(row, 0).symbol
+                return str(self.__move_at(row, 0).symbol)
 
         return None
 
 
 class Move:
-    def __init__(self, x: int, y: int, symbol: str):
+    def __init__(self, x: int, y: int, player: str):
         self.x = x
         self.y = y
-        self.symbol = symbol
+        self.symbol = Player(player)
 
     def __eq__(self, other) -> bool:
         return other is not None and self.symbol == other.symbol
+
+
+class Player:
+    def __init__(self, symbol: str):
+        self.symbol = symbol
+
+    def __eq__(self, other) -> bool:
+        return other is not None and type(self) == type(other) and str(self) == str(other)
+
+    def __str__(self) -> str:
+        return self.symbol
+
