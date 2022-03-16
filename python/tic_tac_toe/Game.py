@@ -20,16 +20,5 @@ class Game(object):
         self._last_player = symbol
         self._board.add_tile_at(symbol, x, y)
 
-    def a_player_won_on_a_row(self, row):
-        return self._board.tile_at(row, 0) == self._board.tile_at(row, 1) \
-                and self._board.tile_at(row, 2) == self._board.tile_at(row, 1)
-
     def winner(self):
-        for row in range(3):
-            if self._board.tile_at(row, 0) is not None \
-                    and self._board.tile_at(row, 1) is not None \
-                    and self._board.tile_at(row, 2) is not None \
-                    and self.a_player_won_on_a_row(row):
-                return self._board.tile_at(row, 0).symbol
-
-        return None
+        return self._board.has_a_winner()
