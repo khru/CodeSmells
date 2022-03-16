@@ -18,7 +18,7 @@ class Game:
     def winner(self):
         return self._board.has_a_winner()
 
-class Board(object):
+class Board:
     __BOARD_SIZE = 3
 
     def __init__(self):
@@ -49,7 +49,7 @@ class Board(object):
 
         return None
 
-class Tile(object):
+class Tile:
     def __init__(self, x: int, y: int, symbol: str):
         self.x = x
         self.y = y
